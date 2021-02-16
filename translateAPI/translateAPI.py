@@ -35,7 +35,7 @@ def mysql(url, username, password, table, database, key):
             translated_final.update({columns[column_id]: y})
             column_id += 1
     print(translated_final)
-    url = 'http://52.152.216.112/json'
+    url = 'https://translation37.p.rapidapi.com/json'
     data = {'text': translated_final}
     headers = {
         'content-type': "application/json",
@@ -90,7 +90,7 @@ def postgres(url, username, password, table, database, key):
             translated_final.update({columns[column_id]: y})
             column_id += 1
     print(translated_final)
-    url = 'http://52.152.216.112/json'
+    url = 'https://translation37.p.rapidapi.com//json'
     data = {'text': translated_final}
     headers = {
         'content-type': "application/json",
