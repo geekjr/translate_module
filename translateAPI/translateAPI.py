@@ -3,7 +3,7 @@ import requests
 import psycopg2
 
 
-def mysql(url, username, password, table, database):
+def mysql(url, username, password, table, database, key):
     """
             This method is for translating MySQL databases
             :param url: Connection url to database
@@ -11,6 +11,7 @@ def mysql(url, username, password, table, database):
             :param password: Your password for the database
             :param table: The table you want to translate
             :param database: The database that has the table you want to translate
+            :param key: Your API key from RapidAPI
             :return: Returns query that you can insert into MySQL table
             """
     db = mysql.connector.connect(
@@ -36,7 +37,12 @@ def mysql(url, username, password, table, database):
     print(translated_final)
     url = 'http://52.152.216.112/json'
     data = {'text': translated_final}
-    x = requests.post(url, data=data)
+    headers = {
+        'content-type': "application/json",
+        'x-rapidapi-key': key,
+        'x-rapidapi-host': "translation37.p.rapidapi.com"
+    }
+    x = requests.post(url, data=data, headers=headers)
 
     print(x.content)
 
@@ -52,7 +58,7 @@ def mysql(url, username, password, table, database):
     to_return = f"INSERT INTO {table} ({list(columns_sql)}) VALUES ({data_sql})"
     return to_return
 
-def postgres(url, username, password, table, database):
+def postgres(url, username, password, table, database, key):
     """
                 This method is for translating MySQL databases
                 :param url: Connection url to database
@@ -60,6 +66,7 @@ def postgres(url, username, password, table, database):
                 :param password: Your password for the database
                 :param table: The table you want to translate
                 :param database: The database that has the table you want to translate
+                :param key: Your API key from RapidAPI
                 :return: Returns query that you can insert into Postgres table
                 """
 
@@ -85,7 +92,12 @@ def postgres(url, username, password, table, database):
     print(translated_final)
     url = 'http://52.152.216.112/json'
     data = {'text': translated_final}
-    x = requests.post(url, data=data)
+    headers = {
+        'content-type': "application/json",
+        'x-rapidapi-key': key,
+        'x-rapidapi-host': "translation37.p.rapidapi.com"
+    }
+    x = requests.post(url, data=data, headers=headers)
 
     print(x.content)
 
