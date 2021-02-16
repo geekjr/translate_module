@@ -35,7 +35,19 @@ def mysql(url, username, password, table):
     data = {'text': translated_final}
     x = requests.post(url, data=data)
 
-    print(x.text)
+    print(x.content)
+
+    columns_sql = ()
+    data_sql = ()
+
+    for c in range(x.content):
+        columns_sql.append(x.content.keys()[c])
+
+    for k in range(x.content):
+        data_sql.append(x.content.values()[k])
+
+    to_return = f"INSERT INTO {table} ({list(columns_sql)}) VALUES ({data_sql})"
+    return to_return
 
 def postgres():
     ffg

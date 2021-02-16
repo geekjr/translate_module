@@ -38,4 +38,13 @@ x = requests.post(url, data=myobj)
 
 print(x.content)
 
-to_return = "INSERT INTO customers (name, address) VALUES (%s, %s)"
+columns_sql = ()
+data_sql = ()
+
+for c in range(myobj):
+    columns_sql.append(myobj.keys()[c])
+
+for k in range(myobj):
+    data_sql.append(myobj.values()[k])
+
+to_return = f"INSERT INTO chitestnew ({list(columns_sql)}) VALUES ({data_sql})"
