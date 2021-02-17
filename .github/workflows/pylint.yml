@@ -19,5 +19,6 @@ jobs:
         pip install pylint
     - name: Analysing the code with pylint
       run: |
+        pip install mysql-connector requests psycopg2-binary
         cd translateAPI/
         pylint `ls -R|grep .py$|xargs`
