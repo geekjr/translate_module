@@ -1,4 +1,4 @@
-#pylint: disable=no-member
+#pylint: disable=no-member,function-redefined
 import mysql.connector
 import requests
 import psycopg2
