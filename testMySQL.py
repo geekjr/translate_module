@@ -8,11 +8,11 @@ model = EasyNMT('opus-mt')
 
 
 db = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="Fadodo24",
-        database="chitest",
-    )
+    host="localhost",
+    user="root",
+    password="Fadodo24",
+    database="chitest",
+)
 cursor = db.cursor()
 cursor.execute("SHOW COLUMNS FROM chitestnew;")
 columns_cursor = cursor.fetchall()

@@ -166,10 +166,12 @@ def image_request(image, key):
     headers = {
         'content-type': "multipart/form-data; boundary=---011000010111000001101001",
         'x-rapidapi-key': key,
-        'x-rapidapi-host': "translation37.p.rapidapi.com"
-    }
+        'x-rapidapi-host': "translation37.p.rapidapi.com"}
 
-    response = requests.request("POST", url, data=payload, files={'file': open(image, 'r')}, headers=headers)
+    response = requests.request(
+        "POST", url, data=payload, files={
+            'file': open(
+                image, 'r')}, headers=headers)
 
     # print(response.text)
     return response.text
