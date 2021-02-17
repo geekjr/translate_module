@@ -1,4 +1,8 @@
-#pylint: disable=no-member,function-redefined
+"""
+Run: import the functions
+"""
+
+# pylint: disable=no-member,function-redefined,too-many-arguments,invalid-name,too-many-locals
 import mysql.connector
 import requests
 import psycopg2
